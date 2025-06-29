@@ -5,7 +5,7 @@ const userValidation = z.object({
     invalid_type_error: 'Name must be string',
     required_error: 'name must be required',
   }),
-  image: z.string(),
+  img: z.string(),
   email: z.string().email(),
   // eslint-disable-next-line no-useless-escape
   password: z.string(),

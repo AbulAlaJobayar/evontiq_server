@@ -18,7 +18,7 @@ app.use(cors({
 app.use('/api/v1', router);
 
 app.get('/', (req, res) => {
-  res.send('welcome to florist api!');
+  res.send('welcome to evontiq api!');
 });
 app.use(globalErrorHandler);
 app.use(notFound);

@@ -9,7 +9,7 @@ const createUser = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
     success: true,
-    message: 'registered successfully',
+    message: 'user Registered successfully',
     data: result,
   });
 });
@@ -22,15 +22,7 @@ const getUserById = catchAsync(async (req, res) => {
     data: result,
   });
 });
-const totalSeller = catchAsync(async (req: Request, res: Response) => {
-  const result = await UserService.totalSeller();
-  sendResponse(res, {
-    statusCode: httpStatus.OK,
-    success: true,
-    message: 'total seller retrieve successfully',
-    data: result,
-  });
-});
+
 const updateUserFromDB = catchAsync(async (req: Request, res: Response) => {
   const { id } = req.user;
   const result = await UserService.updateUserFromDB(id, req.body);
@@ -55,7 +47,6 @@ const getMyProfileIntoDB = catchAsync(async (req:Request , res:Response) => {
 
 export const userController = {
   createUser,
-  totalSeller,
   getUserById,
   updateUserFromDB,
   getMyProfileIntoDB
