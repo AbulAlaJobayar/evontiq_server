@@ -6,7 +6,10 @@ import AppError from '../../utils/AppError';
 import { createToken, verifyToken } from '../../utils/tokenUtils';
 import config from '../../config';
 
+
+// user login
 const loginUser = async (payload: TLoginUser) => {
+  // checking if the user is exist
   const user = await User.findOne({ email: payload.email }).select('+password');
   if (!user) {
     throw new AppError(httpStatus.NOT_FOUND, 'User is not Found');
@@ -19,10 +22,6 @@ const loginUser = async (payload: TLoginUser) => {
   const jwtPayload = {
     id: user._id,
     name: user.name,
-    image: user.image,
-    address:user.address,
-    phoneNumber:user.phoneNumber,
-    role: user.role,
     email: user.email,
   };
   // create access Token
@@ -31,6 +30,9 @@ const loginUser = async (payload: TLoginUser) => {
     config.jwt_access_secret,
     config.jwt_access_expire_in,
   );
+
+  // create refresh Token
+  // refresh token is used to get new access token when the access token is expired
   const refreshToken = createToken(
     jwtPayload,
     config.jwt_refresh_secret,
@@ -45,7 +47,6 @@ const loginUser = async (payload: TLoginUser) => {
 const refreshToken = async (token: string) => {
   // checking if the given token is valid
   const decoded = verifyToken(token, config.jwt_refresh_secret as string);
-  console.log(decoded);
   const { id, name, email } = decoded;
 
   // checking if the user is exist
@@ -66,10 +67,6 @@ const refreshToken = async (token: string) => {
   const jwtPayload = {
     id: user._id,
     name: user.name,
-    image: user.image,
-    address:user.address,
-    phoneNumber:user.phoneNumber,
-    role: user.role,
     email: user.email,
   };
 

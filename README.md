@@ -1,5 +1,5 @@
 # Project Name:
-Flower Management Server
+EventIQ Server
 
 ## Project Overview
 

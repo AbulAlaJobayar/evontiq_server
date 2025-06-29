@@ -1,6 +1,6 @@
 import { JwtPayload } from 'jsonwebtoken';
 import mongoose from 'mongoose';
-import { Product } from '../product/product.model';
+import { Product } from '../event/product.model';
 import AppError from '../../utils/AppError';
 import httpStatus from 'http-status';
 import { TSales } from './sales.interface';

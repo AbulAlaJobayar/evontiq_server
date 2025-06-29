@@ -4,10 +4,9 @@ import { Types } from 'mongoose';
 type TJwtPayload = {
   id: Types.ObjectId;
   name: string;
-  image:string;
-  email: string;
-  role:'manager'|'seller'
+  email: string;  
 };
+
 export const createToken = (
   jwtPayload: TJwtPayload,
   secret: string,
