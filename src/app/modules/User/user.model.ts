@@ -1,5 +1,4 @@
 import { Schema, model } from 'mongoose';
-
 import bcrypt from 'bcrypt';
 import { TUser } from './user.interface';
 import config from '../../config';
@@ -10,7 +9,7 @@ const userSchema = new Schema<TUser>(
       type: String,
       required: [true, 'please input your name'],
     },
-    image: {
+    img: {
       type: String,
     },
     email: {
@@ -22,18 +21,6 @@ const userSchema = new Schema<TUser>(
       type: String,
       required: [true, 'please input strong password'],
       select: 0,
-    },
-    role: {
-      type: String,
-      enum: ['manager', 'seller'],
-    },
-    address:{
-      type: String,
-      required: [true, 'please input your address'],
-    },
-    phoneNumber: {
-      type: String,
-      required: [true, 'please input your phone number'],
     },
   },
   { timestamps: true },

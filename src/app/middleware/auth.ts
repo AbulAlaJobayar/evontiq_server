@@ -1,4 +1,4 @@
-//import { userController } from './../modules/User/user.controller';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextFunction, Request, Response } from "express";
 import catchAsync from "../utils/catchAsync";
 import AppError from "../utils/AppError";
@@ -7,9 +7,9 @@ import { verifyToken } from "../utils/tokenUtils";
 import config from "../config";
 import { JwtPayload } from "jsonwebtoken";
 import { User } from "../modules/User/user.model";
-import { TUserRole } from "../modules/User/user.interface";
 
-const auth = (...requiredRoles:TUserRole[]) => {
+
+const auth = (...requiredRoles:any) => {
   return catchAsync(async (req:Request, res: Response, next: NextFunction) => {
     
     const token = req.headers.authorization;
