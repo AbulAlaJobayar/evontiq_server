@@ -16,7 +16,7 @@ This backend system is designed for a full-featured event management application
 - **bcrypt (Password Hashing)**
 
 ## Live URL
-[Flower Management Dashboard](https://flower-management-server-weld.vercel.app)
+[evontIq](https://evontiq-server.vercel.app/)
 
 
 ## 🔐 Authentication Features
