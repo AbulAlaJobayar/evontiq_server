@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 const eventValidation = z.object({
-  title:z.string({
+  title: z.string({
     invalid_type_error: 'title must be string',
     required_error: 'title must be required',
   }),
@@ -19,8 +19,8 @@ const eventValidation = z.object({
   }),
 
   location: z.string({
-   invalid_type_error: 'Location must be number',
-    required_error: 'Location must be required', 
+    invalid_type_error: 'Location must be number',
+    required_error: 'Location must be required',
   }),
 
   description: z.string({
@@ -29,14 +29,14 @@ const eventValidation = z.object({
   }),
 });
 
-const bookEventValidation=z.object({
-eventId:z.string({
-   invalid_type_error: 'description must be string',
+const bookEventValidation = z.object({
+  eventId: z.string({
+    invalid_type_error: 'description must be string',
     required_error: 'description must be required',
-})
-})
+  }),
+});
 
 export const eventSchemaValidation = {
   eventValidation,
-  bookEventValidation
+  bookEventValidation,
 };

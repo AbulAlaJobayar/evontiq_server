@@ -155,7 +155,7 @@ const getMyBookedEvents = async (id: Types.ObjectId, query: any) => {
 
   return {
     meta,
-    data
+    data,
   };
 };
 

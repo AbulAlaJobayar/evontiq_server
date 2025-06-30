@@ -1,14 +1,14 @@
-import { Types } from "mongoose";
+import { Types } from 'mongoose';
 
 export type TEvent = {
-  title:string;
+  title: string;
   name: string;
-  date:string|Date; // Using Date or string to allow flexibility in input format
-  time:string;
+  date: string | Date; // Using Date or string to allow flexibility in input format
+  time: string;
   location: string;
   description: string;
-  attendCount:number;
+  attendCount: number;
   availability: boolean;
-  creatorId?:Types.ObjectId;
-  attendees?: Types.ObjectId[];  
+  creatorId?: Types.ObjectId;
+  attendees?: Types.ObjectId[];
 };

@@ -33,14 +33,12 @@ const updateUserFromDB = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
-const getMyProfileIntoDB = catchAsync(async (req:Request , res:Response) => {
- 
- 
+const getMyProfileIntoDB = catchAsync(async (req: Request, res: Response) => {
   const result = await UserService.getMyProfileIntoDB(req.user);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: "Profile retrieved successfully",
+    message: 'Profile retrieved successfully',
     data: result,
   });
 });
@@ -49,5 +47,5 @@ export const userController = {
   createUser,
   getUserById,
   updateUserFromDB,
-  getMyProfileIntoDB
+  getMyProfileIntoDB,
 };

@@ -17,11 +17,7 @@ router.post(
   validateRequest(eventSchemaValidation.bookEventValidation),
   EventController.attendEventById,
 );
-router.get(
-  '/book',
-  auth(),
-  EventController.getMyBookedEvents,
-);
+router.get('/book', auth(), EventController.getMyBookedEvents);
 router.get('/', EventController.getAllEventIntoDB);
 
 router.get('/:id', auth(), EventController.getSingleEventFromDB);

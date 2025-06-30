@@ -27,7 +27,14 @@ class QueryBuilder<T> {
 
   filter() {
     const queryObj = { ...this.query };
-    const excludeFields = ['searchTerm', 'sort', 'limit', 'page', 'fields', 'dateFilter'];
+    const excludeFields = [
+      'searchTerm',
+      'sort',
+      'limit',
+      'page',
+      'fields',
+      'dateFilter',
+    ];
     excludeFields.forEach((el) => delete queryObj[el]);
 
     // Handle date filtering
@@ -109,7 +116,7 @@ class QueryBuilder<T> {
 
     return {
       start: start.toDate(),
-      end: end.toDate()
+      end: end.toDate(),
     };
   }
 }

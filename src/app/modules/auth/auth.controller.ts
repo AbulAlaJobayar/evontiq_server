@@ -14,7 +14,7 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
     sameSite: 'none',
     maxAge: 1000 * 60 * 60 * 24 * 365,
   });
- 
+
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -24,7 +24,7 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
 });
 
 const refreshToken = catchAsync(async (req, res) => {
-  const {refreshToken}  = req.cookies;
+  const { refreshToken } = req.cookies;
   const result = await authService.refreshToken(refreshToken);
   sendResponse(res, {
     statusCode: httpStatus.OK,

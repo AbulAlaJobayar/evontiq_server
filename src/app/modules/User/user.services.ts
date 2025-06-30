@@ -26,14 +26,14 @@ const updateUserFromDB = async (id: JwtPayload, data: Partial<TUser>) => {
 
 // User Profile
 const getMyProfileIntoDB = async (user: JwtPayload) => {
-const result= await User.findById({_id:user.id})
+  const result = await User.findById({ _id: user.id });
 
-return result
+  return result;
 };
 
 export const UserService = {
   createUserIntoDB,
   getUserById,
   updateUserFromDB,
-  getMyProfileIntoDB
+  getMyProfileIntoDB,
 };
