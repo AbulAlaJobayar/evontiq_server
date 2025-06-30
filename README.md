@@ -1,40 +1,46 @@
 # Project Name:
 EventIQ Server
 
+EventIQ Server is a scalable and secure event management backend built using the MERN stack with TypeScript. It supports user authentication, event CRUD operations, event filtering/searching, and user participation tracking.
+
 ## Project Overview
 
-ExpressTSAuth is a sophisticated authentication system built using Express, Mongoose, TypeScript, and state-of-the-art technologies. It focuses on schema validation using Zod, secure password encryption with bcrypt, and user validation through JWT tokens. This project provides a robust foundation for implementing authentication in your applications with ease.
+
+This backend system is designed for a full-featured event management application. It offers custom authentication, dynamic event operations, powerful filtering options, and efficient API design using:
+
+- **Express.js**
+- **TypeScript**
+- **Mongoose (MongoDB)**
+- **Zod (Validation)**
+- **JWT (Authentication)**
+- **bcrypt (Password Hashing)**
 
 ## Live URL
 [Flower Management Dashboard](https://flower-management-server-weld.vercel.app)
 
 
-## Features
-- **User Registration:** Seamlessly register new users with Zod schema validation.
-- **Secure Passwords:** Utilize bcrypt for industry-standard password encryption.
-- **JWT Authentication:** Implement JSON Web Tokens for secure user validation.
-- **Express and TypeScript:** Leverage the power of Express.js and TypeScript for a scalable backend.
-- **Product Management:**
-  - **Create Product:** Add new products with detailed information.
-  - **Get Products:** Retrieve a list of all available products.
-  - **Get Single Product:** Fetch detailed information about a specific product.
-- **Sales Management:**
-  - **Create Sale:** Record sales transactions with relevant details.
-  - **Get Sales:** Retrieve a list of all sales transactions.
-- **Flower Filtering:**
-  - **Filter by Price:** Allow Salesman to set a price range for flowers.
-  - **Filter by Bloom Date:** Provide options for filtering flowers based on their bloom date.
-  - **Filter by Color:** Implement real-time search functionality for flower colors.
-  - **Filter by Type:** Categorize flowers into types and allow filtering by preferred categories.
-  - **Filter by Size:** Include a filter for flower sizes to manage flowers of specific sizes.
-  - **Filter by Fragrance:** Allow Salesman to filter flowers based on fragrance.
-  - **Additional Relevant Filter Parameters:** Introduce other relevant filter parameters such as arrangement style or occasion.
-  ## Additional Features
+## 🔐 Authentication Features
 
-- **Bulk Delete Product Options**: Enable Managers to efficiently manage their inventory by implementing a bulk delete feature for flowers.
-- **Coupon & Discount Functionality**: Implement coupon code functionality for discounts on purchases.
-- **Duplicate & Edit Feature**: Managers can duplicate existing products to create new ones with modifications.
-- **Customer Membership & Points on Purchase**: Introduce a membership system where customers can earn points on purchases.
+- ✅ User Registration with validation
+- ✅ Secure login with hashed password (bcrypt)
+- ✅ Access & Refresh tokens via JWT
+- ✅ Private route protection
+- ✅ Built-in error handling
+
+## 📦 Event Management Features
+
+- 🔨 Add, update, delete, and view events
+- 🔎 Search by title
+- 🗓️ Filter by:
+  - Today
+  - Current Week
+  - Last Week
+  - Current Month
+  - Last Month
+- 🧑‍🤝‍🧑 Join events (user can join only once)
+- 📋 View My Events with update/delete options
+
+---
 
 
 ## Installation
@@ -83,126 +89,6 @@ Build Project:
 ```bash
   npm run build
   ```
-
-## API Reference
-
-#### Domain: https://flower-management-server-weld.vercel.app/
-
-#### seller Registration
-
-```http
-  POST /api/v1/user/register
-```
-
-####  User Login
-
-```http
-  POST /api/v1/auth/login
-```
-
-#### Refresh Token
-
-```http
-  POST /api/v1/auth/refresh-token
-
-```
-
-
-
-#### Create a Product 
-
-```http
-  POST /api/v1/product/create-flower
-
-```
-```http
- Authorization: Token
-```
-
-
-#### Get All Product 
-
-```http
- GET /api/v1/product/flowers
-
-
-#### Get single Product 
-```http
- Authorization: Token
-``` 
-```http
- GET /api/v1/product/_id
-
-
-
-#### Update single Product 
-
-
-```http
- Authorization: Token
-``` 
-```http
- PATCH /api/v1/product/_id
-```
-
-#### Delete single Product 
-
-
-```http
- Authorization: Token
-``` 
-```http
- DELETE /api/v1/product/_id
-```
-#### Delete many Product 
-
-
-```http
- Authorization: Token
-``` 
-```http
- Post /api/v1/product/delateMany
-```
-
-
-#### Create a sell **
-
-```http
-POST /api/v1/sale/createSale
-```
-```http
- Authorization: token
-```
-
-
-#### Get All sell
-
-```http
- GET /api/v1/sale/allSales
- ```
-#### Get Single sell
-
-```http
- GET /api/v1/sale/sellerSales
-```
-
-#### create coupon 
-
-```http
- post /api/v1/coupon/createCoupon
-
-```
-#### verify coupon 
-
-```http
-post /api/v1/coupon/verify
-
-```
-{
-    "coupon":"borno25"
-}
-
-
 
 ## if need any information
 contact me

@@ -9,7 +9,7 @@ import { JwtPayload } from "jsonwebtoken";
 import { User } from "../modules/User/user.model";
 
 
-const auth = (...requiredRoles:any) => {
+const auth = () => {
   return catchAsync(async (req:Request, res: Response, next: NextFunction) => {
     
     const token = req.headers.authorization;
@@ -27,7 +27,7 @@ const auth = (...requiredRoles:any) => {
 
 
     
-    const { id, name, email,role } = decoded as JwtPayload;
+    const { id, name, email } = decoded as JwtPayload;
     // check user
     const user = await User.findOne({ _id: id });
     if (!user) {
@@ -41,13 +41,8 @@ const auth = (...requiredRoles:any) => {
     if (!user.name === name) {
       throw new AppError(httpStatus.UNAUTHORIZED, 'user not authorized');
     }
-    if (requiredRoles && !requiredRoles.includes(role)) {
-      throw new AppError(
-        httpStatus.UNAUTHORIZED,
-        'You are not authorized !',
-      );
-    }
-    req.user = decoded as JwtPayload & { role: string };
+  
+    req.user = decoded as JwtPayload ;
 
     next();
   });
