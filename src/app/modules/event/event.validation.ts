@@ -5,10 +5,6 @@ const eventValidation = z.object({
     invalid_type_error: 'title must be string',
     required_error: 'title must be required',
   }),
-  name: z.string({
-    invalid_type_error: 'Name must be string',
-    required_error: 'name must be required',
-  }),
   date: z.string({
     invalid_type_error: 'date must be string',
     required_error: 'date must be required',
@@ -31,8 +27,8 @@ const eventValidation = z.object({
 
 const bookEventValidation = z.object({
   eventId: z.string({
-    invalid_type_error: 'description must be string',
-    required_error: 'description must be required',
+    invalid_type_error: 'eventId must be string',
+    required_error: 'eventId must be required',
   }),
 });
 

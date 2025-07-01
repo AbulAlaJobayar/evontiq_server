@@ -50,19 +50,21 @@ const createEventIntoDB = async (
 };
 
 const getAllEventIntoDB = async (query: any) => {
-  const eventQuery = new QueryBuilder(Event.find(), query)
-    .search(['title', 'description', 'location'])
+  const eventQuery = new QueryBuilder(Event.find().populate('creatorId'), query)
+    .search(['title', 'description'])
     .filter()
     .sort()
+    .sortBy()
     .paginate()
     .fields();
+
   const result = await eventQuery.modelQuery;
   const meta = await eventQuery.countTotal();
-
+  
   return {
-    result,
     meta,
-  };
+    data:result
+  }
 };
 
 const getSingleEventFromDB = async (id: string) => {
@@ -139,7 +141,7 @@ const attendEventById = async (
 };
 
 const getMyBookedEvents = async (id: Types.ObjectId, query: any) => {
-  const eventQuery = new QueryBuilder(Event.find({ attendees: id }), query)
+  const eventQuery = new QueryBuilder(Event.find({ creatorId: id }), query)
     .search(['title', 'description', 'location'])
     .filter()
     .sort()

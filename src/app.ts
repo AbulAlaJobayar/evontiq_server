@@ -13,7 +13,6 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: [
-      'https://incredible-sunshine-b6f9ea.netlify.app',
       '*',
       'http://localhost:5173',
     ],
